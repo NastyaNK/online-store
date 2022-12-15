@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  font-family: segoe print;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: url("images/Косая аллея.jpg")no-repeat center/100%;
+}
+.NC {
+  position: absolute;
+  left: 210px;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.NK {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  justify-items: center;
+  width: 100%;
+}
+
+.Menu {
+  background-color: #ffffffdd;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.logo {
+  width: 100%;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+.Name {
+  position: absolute;
+  left: 200px;
+  right: 10px;
+  bottom: 0px;
+  color: white;
+  text-align: right;
+  font-size: 0.8em;
+}

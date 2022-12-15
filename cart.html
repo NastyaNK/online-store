@@ -1,0 +1,164 @@
+<script>
+    loadItems = () => {
+        load('/cart-items', (result) => {
+            if (result == "") result = "<p align='center'>Пусто</p>";
+            cart.innerHTML = result;
+
+            document.querySelectorAll('.item').forEach((item) => {
+                btn = item.querySelector('.button');
+                changeState(btn, false)
+                document.querySelectorAll('.cart-item').forEach((elem) => {
+                    if (item.id == elem.id)
+                        changeState(btn, true)
+                });
+            });
+            cart.style.height = window.innerHeight - cart.offsetTop - 40 + "px"
+        })
+    }
+    window.onresize = () => {
+        cart.style.height = window.innerHeight - cart.offsetTop - 40 + "px"
+    }
+    runners.push(() => {
+        loadItems();
+    })
+    pmItems = (btn, add_count) => {
+        main_div = btn.parentNode.parentNode.parentNode.parentNode.parentNode;
+        console.log(main_div);
+        id = main_div.querySelector('.item-id');
+        count = main_div.querySelector('.item-count');
+        price = main_div.querySelector('.item-price');
+        load('/add?id=' + id.value + '&count=' + (count.value - add_count), (result) => loadItems())
+    }
+    pItem = (btn) => pmItems(btn, -1);
+    mItem = (btn) => pmItems(btn, 1);
+    buy = () => {
+        window.location = "/buy";
+    }
+</script>
+<style>
+    .cart-title {
+        font-size: 0.9em;
+        font-weight: 900;
+    }
+
+    #cart-name {
+        padding-left: 5px;
+    }
+
+    .cart-item {
+        position: relative;
+        width: 180px;
+        height: 90px;
+        margin: 5px;
+        overflow: hidden;
+    }
+
+    .cart-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 45%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .cart-count {
+        position: absolute;
+        left: 48%;
+        bottom: 0;
+        width: 50%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .cart-cost {
+        position: absolute;
+        left: 48%;
+        top: 0;
+        width: 50%;
+        height: auto;
+        font-size: 0.7em;
+    }
+
+    .cart-count td {
+        text-align: center;
+    }
+
+    .plus-item {
+        cursor: pointer;
+        background: white;
+        height: 30px;
+        width: 30px;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+
+    .minus-item {
+        cursor: pointer;
+        background: white;
+        height: 30px;
+        width: 30px;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+
+    .cart-img img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.2s;
+    }
+
+    .cart-img:hover img {
+        filter: blur(1px) brightness(0.8);
+    }
+
+    .cart-img p {
+        padding: 5px;
+        color: white;
+        font-size: 0.5em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.2s;
+        opacity: 0;
+    }
+
+    .cart-img:hover p {
+        opacity: 1;
+    }
+
+    .cart-block {
+        height: auto;
+    }
+
+    #cart {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #buy_all {
+        cursor: pointer;
+        font-size: 0.7em;
+        text-transform: uppercase;
+        background: lightcoral;
+    }
+</style>
+<div class="cart-block">
+    <table class="cart-title">
+        <tr>
+            <td id="cart-name">
+                Корзина
+            </td>
+            <td id="cart-stat" width=1>
+
+            </td>
+        </tr>
+    </table>
+    <div id="cart">
+
+    </div>
+    <input type="button" id="buy_all" onclick="buy()" value="КУПИТЬ">
+</div>

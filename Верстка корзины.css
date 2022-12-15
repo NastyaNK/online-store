@@ -1,0 +1,39 @@
+.products {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    left: 25%;
+    width: 42%;
+    top: 5%;
+    height: 90%;
+    overflow-y: auto;
+    background-color: blue;
+}
+
+.shop {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 100%);
+    right: 5%;
+    width: 22%;
+    height: 90%;
+    top: 5%;
+    overflow-y: auto;
+    background-color: aqua;
+}
+
+.product {
+    justify-self: center;
+    height: 160px;
+    width: 160px;
+    background-color: blueviolet;
+    margin: 5px;
+}
+
+.Menu {
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    background-color: crimson;
+}

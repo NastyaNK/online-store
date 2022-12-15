@@ -1,0 +1,44 @@
+.button .text {
+  display: inline-block;
+  padding-left: 0;
+  width: 45%;
+  transition: .2s;
+}
+
+.button .price {
+  display: inline-block;
+  opacity: 0;
+  transition: .2s .2s;
+  font-size: 0.1em;
+}
+
+.button:hover .text {
+  padding-left: 30%;
+}
+
+.button:hover .price {
+  width: 100%;
+  opacity: 1;
+  font-size: 0.8em;
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  font-size: 0.8rem;
+  border: 2px solid white;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  padding-left: 6%;
+  margin: 10% auto;
+  transition: .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.button:hover {
+  width: 140px;
+  background-color: white;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  color: black;
+  transition: .3s;
+}

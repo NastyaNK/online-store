@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  font-family: segoe print;
+  margin: 0px;
+  padding: 0px;
+}
+
+.glow-on-hover {
+  width: 100%;
+  margin: 3px;
+  margin-bottom: 10px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  display: block;
+}
+
+#Gryffindor:before {
+  background: linear-gradient(45deg, #740001, #eeba30, #ae0001, #d3a625, #740001);
+  background-size: 400%;
+}
+
+#Hufflepuff:before {
+  background: linear-gradient(45deg, #ecb939, #726255, #f0c75e, #372e29, #ecb939);
+  background-size: 400%;
+}
+
+#Ravenclaw:before {
+  background: linear-gradient(45deg, #0e1a40, #5d5d5d, #222f5b, #946b2d, #0e1a40);
+  background-size: 400%;
+}
+
+#Switch:before {
+  background: linear-gradient(45deg, #740001, #eeba30, #222f5b, #2a623d);
+  background-size: 400%;
+}
+
+.button-two {
+
+  border: none;
+  transition: all 0.5s;
+}
+
+.button-two span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-two span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-two:hover span {
+  padding-right: 25px;
+}
+
+.button-two:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #1a472a, #5d5d5d, #2a623d, #aaaaaa, #1a472a);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 400% 0;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="cart-item" id="item-id-*id*">
+    <input type="number" class="item-id" value="*id*" hidden>
+    <input type="number" class="item-count" value="*кол-во*" hidden>
+    <input type="number" class="item-price" value="*цена*" hidden>
+    <div class="cart-img">
+        <img src="images/*картинка*">
+        <p>*описание*</p>
+    </div>
+    <table class="cart-count">
+        <tr>
+            <td>
+                <div class="plus-item" onclick="pItem(this)">+</div>
+            </td>
+            <td width="35">
+                *кол-во*
+            </td>
+            <td>
+                <div class="minus-item" onclick="mItem(this)">-</div>
+            </td>
+        </tr>
+    </table>
+    <table class="cart-cost">
+        <tr>
+            <td>
+                Цена:
+            </td>
+            <td class="cart-cost-td">
+                *стоимость*
+            </td>
+        </tr>
+    </table>
+</div>

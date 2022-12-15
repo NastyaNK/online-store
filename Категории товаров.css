@@ -1,0 +1,41 @@
+.img {
+  height: 170px;
+  width: 150px;
+  padding-bottom: 20px;
+  position: relative;
+  filter: sepia(1);
+  transition: 1s;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+}
+
+.img:hover,
+.img:hover p {
+  filter: sepia(0);
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: segoe print;
+  margin: 0px;
+  padding: 0px;
+}
+
+.img p {
+  padding: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  color: rgb(255, 255, 255);
+  font-size: 0.9em;
+  display: none;
+  margin-left: 0px;
+}
+
+.item {
+  width: 150px;
+}

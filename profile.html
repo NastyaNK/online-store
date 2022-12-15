@@ -1,0 +1,55 @@
+<script>
+
+    sign = (type) => {
+        load(`/auth?sign-${type}&name=${namebox.value}&pass=${passbox.value}`, (result) => {
+            if (result.success == 1) {
+                noauth.hidden = true;
+                user.hidden = false;
+                let pdata = result.message.split(':')
+                user_name.innerText = pdata[0]
+                localStorage.setItem('user', pdata[0])
+                localStorage.setItem('pass', pdata[1])
+                loadItems();
+            } else {
+                noauth.hidden = false;
+                user.hidden = true;
+                smessage.innerHTML = result.message
+            }
+        })
+    }
+
+    signin = () => {
+        sign('in');
+    }
+    signup = () => {
+        sign('up');
+    }
+    signexit = () => {
+        sign('exit');
+        localStorage.clear()
+    }
+    runners.push(() => {
+        if (*зарегистрирован*) {
+            noauth.hidden = true;
+            user.hidden = false;
+        } else if (localStorage.getItem('user') !== null) {
+            namebox.value = localStorage.getItem('user')
+            passbox.value = localStorage.getItem('pass')
+            signin();
+        }
+    })
+
+</script>
+<div id="noauth">
+    <div id="smessage"></div>
+    <input name="name" type="text" id="namebox" placeholder="Имя">
+    <input name="pass" type="password" id="passbox" placeholder="Пароль">
+    <input class="signin" type="button" onclick="signin()" value="Войти">
+    <input class="signup" type="button" onclick="signup()" value="Зарегистрироваться">
+</div>
+<div id="user" hidden>
+    <div id="user_name">
+        *имя*
+    </div>
+    <input class="signup" type="button" onclick="signexit()" value="Выйти">
+</div>

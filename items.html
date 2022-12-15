@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="Верстка.css">
+    <link rel="stylesheet" href="Категории товаров.css">
+    <link rel="stylesheet" href="Корзина и цена.css">
+    <link rel="stylesheet" href="profile.css">
+    <style>
+        body {
+            background: url("images/*фон*") no-repeat center/100%;
+        }
+    </style>
+    <script src="main.js"></script>
+    <script>
+        function add(btn) {
+            id = btn.parentNode.querySelector('.item-id');
+            //count = btn.parentNode.querySelector('.item-count');
+            price = btn.parentNode.querySelector('.item-price');
+            if (btn.style.borderColor == "red") {
+                load('/add?id=' + id.value + '&count=0', (result) => loadItems())
+            } else {
+                load('/add?id=' + id.value + '&count=1', (result) => loadItems())
+            }
+        }
+        changeState = (btn, state) => {
+            if (!state) {
+                btn.style.backgroundColor = "white"
+                btn.style.borderColor = "white"
+                btn.style.color = "red"
+            } else {
+                btn.style.backgroundColor = "red"
+                btn.style.borderColor = "red"
+                btn.style.color = "white"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="Menu">
+        *профиль*
+        *корзина*
+    </div>
+    <style>
+        .img:hover {
+            filter: sepia(1);
+        }
+
+        .img {
+            filter: sepia(0);
+        }
+    </style>
+    <div class="NC">
+        <p class="logo">*приветствие*</p>
+        <div class="NK">
+            *товары*
+        </div>
+    </div>
+    <p class="Name">Анастасия +7(928) 512-21-12</p>
+</body>
+
+</html>
